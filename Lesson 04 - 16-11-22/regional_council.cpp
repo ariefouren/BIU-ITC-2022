@@ -17,6 +17,8 @@ int main()
 
     double dist[NUM_VILLAGES][NUM_VILLAGES];
 
+    double maxDist = 0;
+
     // calculate the distances between the villages
     for(int i =0; i < NUM_VILLAGES; i++)
     {
@@ -26,7 +28,16 @@ int main()
         }
     }
 
-
+    // find the max distance
+    for(int i =0; i < NUM_VILLAGES; i++)
+    {
+        for(int j = 0; j < NUM_VILLAGES; j++)
+        {
+            cout << setw(PRINT_WIDTH) <<dist[i][j] ;
+        }
+        cout << endl;
+    }
+    
     // print the matrix of the distances
     for(int i =0; i < NUM_VILLAGES; i++)
     {

@@ -18,6 +18,8 @@ int main()
     double dist[NUM_VILLAGES][NUM_VILLAGES];
 
     double maxDist = 0;
+    int vill1, vill2;
+    
 
     // calculate the distances between the villages
     for(int i =0; i < NUM_VILLAGES; i++)
@@ -33,14 +35,28 @@ int main()
     {
         for(int j = 0; j < NUM_VILLAGES; j++)
         {
-            cout << setw(PRINT_WIDTH) <<dist[i][j] ;
+           if(maxDist < dist[i][j])
+           {
+                maxDist = dist[i][j];
+                vill1 = i;
+                vill2 = j;
+           }
         }
-        cout << endl;
     }
-    
+
     // print the matrix of the distances
+    // print the header
+    cout << setw(PRINT_WIDTH) <<" ";  
+    for(int i =0; i < NUM_VILLAGES; i++)
+    { 
+        cout << setw(PRINT_WIDTH) << villages[i] ;
+    }
+    cout << endl;
+    
+
     for(int i =0; i < NUM_VILLAGES; i++)
     {
+        cout << setw(PRINT_WIDTH) << villages[i]; 
         for(int j = 0; j < NUM_VILLAGES; j++)
         {
             cout << setw(PRINT_WIDTH) <<dist[i][j] ;
@@ -48,7 +64,9 @@ int main()
         cout << endl;
     }
     cout << endl;
-     
+    
+    cout << "The farthest villages: " << villages[vill1] << " and " << villages[vill2] << endl;
+    cout << "Max distancs : " << maxDist << endl;
     system("pause");
     return 0;
 }

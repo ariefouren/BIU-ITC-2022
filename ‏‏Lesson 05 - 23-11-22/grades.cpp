@@ -4,7 +4,7 @@
 
 using namespace std; 
 
-#define MAX_NUM_GRADES 10
+#define MAX_NUM_GRADES 1000
 #define WIDTH 10
 
 void printGrades(double values[], int size);
@@ -29,7 +29,7 @@ int main()
             grades[num_grades] = next_val;
             num_grades ++;
         }    
-    } while ((next_val >=0) && num_grades < MAX_NUM_GRADES);
+    } while ((next_val >=0) && (num_grades < MAX_NUM_GRADES));
     
 
 

@@ -4,11 +4,13 @@
 using namespace std;
 
 #define MAX_N 50
-#define WIDTH 2
+#define WIDTH 3
 
 
 void computeModRelation(bool rel[MAX_N][MAX_N], int n, int m);
 void printRelation(bool rel[MAX_N][MAX_N], int n);
+
+bool isReflexive(bool rel[MAX_N][MAX_N], int n);
 
 int main()
 {
@@ -23,8 +25,14 @@ int main()
     cout << "Enter m: ";
     cin >> m;
 
+    computeModRelation(modRelation, n, m);
+    
+    cout<< " relation mod " << m << " : " << endl;
+    printRelation(modRelation, n);
 
 
+    cout<< endl;
+    cout << "Reflexive : " << isReflexive(modRelation, n) << endl;
      
     system("pause");
     return 0;
@@ -38,17 +46,37 @@ void computeModRelation(bool rel[MAX_N][MAX_N], int n, int m)
         {
             rel[i][j] = (((j - i) % m) == 0 ); 
         }
-        cout << endl;
     }
 }
 
 void printRelation(bool rel[MAX_N][MAX_N], int n)
 {
-     for(int i =0; i < n; i++)
+    // print header
+
+    cout << setw(WIDTH) << "";
+    for(int i =0; i < n; i++)
     {
+        cout << setw(WIDTH) << i; 
+    }
+    cout << endl;
+
+
+    for(int i =0; i < n; i++)
+    {
+        cout << setw(WIDTH) << i; 
         for(int j = 0; j < n; j++)
         {
             cout << setw(WIDTH) << rel[i][j]; 
         }
+        cout << endl;
     }
+}
+
+bool isReflexive(bool rel[MAX_N][MAX_N], int n)
+{
+    for(int i = 0; i< n; i++)
+    {
+        if( !rel[i][i]) return false;
+    }
+    return true;
 }

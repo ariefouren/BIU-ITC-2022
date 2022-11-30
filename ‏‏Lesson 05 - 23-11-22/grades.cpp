@@ -37,19 +37,18 @@ int main()
 
 
     // output
-    cout << "Grades before the facttor: " << endl;
+    cout << "Grades before the factor: " << endl;
     printGrades(grades, num_grades);
 
 
-   /*
+   
     factor(grades, num_grades, 60, 80, 0.05);
-    cout << endl <<
-     "Grades after the facttor: " << endl;
+    cout << endl << "Grades after the factor: " << endl;
     printGrades(grades, num_grades);
-    */
-   cout << endl;
-   cout << "Average = " << average(grades, num_grades) << endl;
-   cout << "Standard deviation = " << stdDev(grades, num_grades) << endl;
+
+    cout << endl;
+    cout << "Average = " << average(grades, num_grades) << endl;
+    cout << "Standard deviation = " << stdDev(grades, num_grades) << endl;
 
 
     
@@ -84,7 +83,7 @@ void printGrades(double values[], int size)
 {
     for(int i = 0; i < size; i++)
     {
-        cout << setw(WIDTH)  << values[i] ;
+        cout << setw(WIDTH)  << fixed << setprecision(1) << values[i] ;
     }
 }
 

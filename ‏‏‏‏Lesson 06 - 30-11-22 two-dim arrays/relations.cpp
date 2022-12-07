@@ -11,6 +11,7 @@ void computeModRelation(bool rel[MAX_N][MAX_N], int n, int m);
 void printRelation(bool rel[MAX_N][MAX_N], int n);
 
 bool isReflexive(bool rel[MAX_N][MAX_N], int n);
+bool isTransitive(bool rel[MAX_N][MAX_N], int n);
 
 int main()
 {
@@ -32,8 +33,8 @@ int main()
 
 
     cout<< endl;
-    cout << "Reflexive : " << isReflexive(modRelation, n) << endl;
-     
+    cout << "Reflexive  : " << (isReflexive(modRelation, n)? "T" : "F") << endl;
+    cout << "Transitive : " << (isTransitive(modRelation, n)? "T" : "F") << endl;
     system("pause");
     return 0;
 }
@@ -66,7 +67,7 @@ void printRelation(bool rel[MAX_N][MAX_N], int n)
         cout << setw(WIDTH) << i; 
         for(int j = 0; j < n; j++)
         {
-            cout << setw(WIDTH) << rel[i][j]; 
+            cout << setw(WIDTH) << (rel[i][j] ? "T" : " " ) ; 
         }
         cout << endl;
     }
@@ -77,6 +78,21 @@ bool isReflexive(bool rel[MAX_N][MAX_N], int n)
     for(int i = 0; i< n; i++)
     {
         if( !rel[i][i]) return false;
+    }
+    return true;
+}
+
+bool isTransitive(bool rel[MAX_N][MAX_N], int n)
+{
+    for(int i = 0; i< n; i++)
+    {
+        for(int j = 0; j < n; j++)
+        {
+            for(int k =0; k < n; k++)
+            {
+                if( rel[i][j] && rel[j][k] && !rel[i][k]) return false;
+            }
+        }
     }
     return true;
 }

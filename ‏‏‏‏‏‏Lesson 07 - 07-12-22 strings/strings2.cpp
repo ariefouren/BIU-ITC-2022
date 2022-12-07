@@ -35,7 +35,7 @@ int main()
 
 //  strcpy(word1, word2)   copies word2 onto word1. We must make sure that word2 was declared 
 //  to be long enough to contain the current size of word1. (Note that word2 is not changed)
-
+/*
     cout << "after strcpy(word1, word2) :" << endl;
     strcpy(word1, word2);
     
@@ -44,6 +44,18 @@ int main()
 
     cout << "array name   : " << "word2[]" << endl;
     printStringInfo(word2, STR_LEN);
+*/
+//strcmp compares the lexicographic order of word1 and word2. The values that are 
+//    returned are either -1 , 0, 1 according to the relative order of the strings, see below 
+       switch (strcmp(word1,word2)) 
+       {
+       case -1: cout << word1 << " appears before "<<word2<<endl;
+                      break;
+       case 0: cout << word1 << " is equal to "<<word2<<endl;
+                      break;
+       case 1: cout << word1 << " appears after "<<word2<<endl;
+                      break;
+       }
 
 
     system("pause");

@@ -17,6 +17,13 @@ int main()
 
     printStringInfo(word1, word1Len);
 
+    word1[3] = '\0';
+    cout << "after  word1[3] = 0" << endl;
+    printStringInfo(word1, word1Len);
+
+    word1[3] = '$';
+    cout << "after  word1[3] = '$'" << endl;
+    printStringInfo(word1, word1Len);
     system("pause");
     return 0;
 
